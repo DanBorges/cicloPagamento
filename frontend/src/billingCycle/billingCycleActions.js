@@ -24,6 +24,10 @@ export function update(values) {
     return submit(values, 'put')
 }
 
+export function remove(values) {
+    return submit(values, 'delete')
+}
+
 function submit(values, method) {
     return dispatch => {
         const id = values._id ? values._id: ''
@@ -46,6 +50,15 @@ export function showUpdate(billingCycle) {
     return [
         selectTab('tabUpdate'),
         showtabs('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export function showDelete(billingCycle) {
+    console.log('initialize', billingCycle)
+    return [
+        selectTab('tabDelete'),
+        showtabs('tabDelete'),
         initialize('billingCycleForm', billingCycle)
     ]
 }

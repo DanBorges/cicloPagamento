@@ -9,7 +9,7 @@ import labelAndInput from '../common/form/labelAndInput'
 
 class BillingCycleForm extends Component {
     render() {
-        const { handleSubmit } = this.props
+        const { handleSubmit, readOnly } = this.props
         return (
             <form className='box-form' onSubmit={handleSubmit}>
                 <div className='box-body'>
@@ -17,17 +17,20 @@ class BillingCycleForm extends Component {
                             component={labelAndInput}
                             label='Nome'
                             cols='12 4'
+                            readOnly={readOnly}
                             placeholder='Informe o Nome'     />
                     <Field name='month' 
                             component={labelAndInput}
                             label='Mês'
                             cols='12 4'
                             type='number'
+                            readOnly={readOnly}
                             placeholder='Informe o Mês' />
                     <Field name='year' 
                             component={labelAndInput}
                             label='Ano'
                             cols='12 4'
+                            readOnly={readOnly}
                             type='number'
                             placeholder='Informe o Ano' />
 
