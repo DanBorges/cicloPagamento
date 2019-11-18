@@ -12,7 +12,7 @@ class CreditList extends Component {
                 <td><Field name={`credits[${index}].name`} component={Input}
                             placeholder='Informe o nome'
                             readOnly={this.props.readOnly}></Field></td>
-                <td><Field name={`credits[${index}].vaue`} component={Input}
+                <td><Field name={`credits[${index}].value`} component={Input}
                             placeholder='Informe o Valor'
                             readOnly={this.props.readOnly}></Field></td>
                 <td></td>
