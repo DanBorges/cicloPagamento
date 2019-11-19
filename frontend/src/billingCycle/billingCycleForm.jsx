@@ -10,8 +10,19 @@ import Sumary from './summary'
 
 
 class BillingCycleForm extends Component {
+
+    calculateSumary() {
+        const sum = (t, v) => t + v
+        return  {
+            sumOfCredits: this.props.credits.map(c => +c.value || 0).reduce(sum),
+            sumOfDebts: this.props.debts.map(d => +d.value || 0).reduce(sum)
+
+        } 
+    }
+
     render() {
         const { handleSubmit, readOnly, credits, debts } = this.props
+        const { sumOfCredits,  sumOfDebts} = this.calculateSumary()
         return (
             <form className='box-form' onSubmit={handleSubmit}>
                 <div className='box-body'>
@@ -36,7 +47,7 @@ class BillingCycleForm extends Component {
                             type='number'
                             placeholder='Informe o Ano' />
 
-                    <Sumary credit={10000} debt={500}>
+                    <Sumary credit={sumOfCredits} debt={sumOfDebts}>
 
                     </Sumary>
                     <ItemList cols='12 6' readOnly={readOnly} list={credits} field='credits' legend='Créditos' />
