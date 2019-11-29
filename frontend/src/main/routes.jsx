@@ -3,12 +3,12 @@ import { Router, Route, Redirect, IndexRoute, hashHistory } from 'react-router'
 
 import BillingCycle from '../billingCycle/billingCycle'
 import Dashboard from '../dashboard/dashboard'
-import App from './app'
+import AuthOrApp from './authOrApp'
 
 
 export default props => (
     <Router history={hashHistory}>
-        <Route path='/' component={App}>
+        <Route path='/' component={AuthOrApp}>
             <IndexRoute component={Dashboard}></IndexRoute>
             <Route path='billingCycles' component={BillingCycle} />
         </Route>
